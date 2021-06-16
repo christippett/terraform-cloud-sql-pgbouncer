@@ -56,6 +56,7 @@ resource "google_compute_instance" "pgbouncer" {
   network_interface {
     subnetwork         = var.subnetwork
     subnetwork_project = var.project
+    network_ip         = var.network_ip
 
     dynamic "access_config" {
       for_each = var.disable_public_ip ? [] : [1]
